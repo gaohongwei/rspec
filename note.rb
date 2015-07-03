@@ -7,4 +7,6 @@ context
 let
 expect
 expect(obj).not_to receive(:method).with(value)
+expect(obj).to     receive(:method).with(value)
+
 
