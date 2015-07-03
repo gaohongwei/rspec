@@ -1,9 +1,12 @@
 
-describe: create test group
+describe/contect: alias,create test group
+“describe” is for one functionality 
+“context”  is for one functionality in one state.
+
 it: create single test sample
 
 subject
-context
+
 
 let/before
 before creates instance variables; 
