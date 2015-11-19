@@ -30,4 +30,7 @@ If the message is received, the expectation is satisfied. If not, the example fa
 expect(obj).not_to receive(:method).with(value)
 expect(obj).to     receive(:method).with(value)
 
-
+expect(rendered).to have_tag('a', text: 'CSV', with: 
+  { href: people_path(format: :csv, external: false, filters: params[:filters]) 
+  }
+)
