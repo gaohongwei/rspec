@@ -9,11 +9,14 @@ subject
 
 
 let/before
-before creates instance variables; 
 let creates lazily-evaluated local variables,cached
 let(:valid_user) { User.find_by_email(email) } 
 # query db only once, and cached it locally
+let, define a memoized helper method. 
+let is lazy-evaluated
+let!, define a memoized helper method that is called in a before hook
 
+before creates instance variables,
 before { @valid_user = User.find_by_email(email) } 
 # Query db before each spec. 
 # run before each test, 
