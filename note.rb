@@ -37,3 +37,5 @@ expect(rendered).to have_tag('a', text: 'CSV', with:
   { href: people_path(format: :csv, external: false, filters: params[:filters]) 
   }
 )
+
+expect(rendered).to have_tag(:img, with: { src: '/assets/custom.png' })
