@@ -33,17 +33,18 @@ If the message is received, the expectation is satisfied. If not, the example fa
 expect(obj).not_to receive(:method).with(value)
 expect(obj).to     receive(:method).with(value)
 
-expect(rendered).to have_tag('a', text: 'CSV', with: 
-  { href: people_path(format: :csv, external: false, filters: params[:filters]) 
-  }
-)
 
-expect(rendered).to have_tag(:img, with: { src: '/assets/custom.png' })
 
-# index count
+# index count in controller
 it 'returns http success' do
   sign_in @admin1
   get :index
   expect(response).to have_http_status(:success)
   expect(assigns(:activity_logs).count).to eq(10)
 end
+# check html components in view
+expect(rendered).to have_tag('a', text: 'CSV', with: 
+  { href: people_path(format: :csv, external: false, filters: params[:filters]) 
+  }
+)
+expect(rendered).to have_tag(:img, with: { src: '/assets/custom.png' })
