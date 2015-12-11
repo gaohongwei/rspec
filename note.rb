@@ -39,3 +39,11 @@ expect(rendered).to have_tag('a', text: 'CSV', with:
 )
 
 expect(rendered).to have_tag(:img, with: { src: '/assets/custom.png' })
+
+# index count
+it 'returns http success' do
+  sign_in @admin1
+  get :index
+  expect(response).to have_http_status(:success)
+  expect(assigns(:activity_logs).count).to eq(10)
+end
