@@ -48,3 +48,7 @@ expect(rendered).to have_tag('a', text: 'CSV', with:
   }
 )
 expect(rendered).to have_tag(:img, with: { src: '/assets/custom.png' })
+
+##  assign value
+    allow(Settings).to receive(:office365_active) { nil }
+    assign(:welcome, false)
