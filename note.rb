@@ -34,6 +34,9 @@ expect(obj).not_to receive(:method).with(value)
 expect(obj).to     receive(:method).with(value)
 
 
+# read controller instance variable
+assigns(:activity_logs)
+@activity_logs
 
 # index count in controller
 it 'returns http success' do
@@ -48,6 +51,7 @@ expect(rendered).to have_tag('a', text: 'CSV', with:
   }
 )
 expect(rendered).to have_tag(:img, with: { src: '/assets/custom.png' })
+
 
 ##  assign value
 Settings.office_active
