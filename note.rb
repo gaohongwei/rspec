@@ -38,6 +38,13 @@ expect(obj).to     receive(:method).with(value)
 assigns(:activity_logs)
 @activity_logs
 
+# Update setting/Assign value
+  allow(Devise).to receive(:unlock_in).and_return(2.minutes)
+  allow(Devise).to receive(:maximum_attempts).and_return(2)
+Settings.office_active
+    allow(Settings).to receive(:office_active) { nil }
+    assign(:welcome, false)
+    
 # index count in controller
 it 'returns http success' do
   sign_in @admin1
@@ -53,7 +60,4 @@ expect(rendered).to have_tag('a', text: 'CSV', with:
 expect(rendered).to have_tag(:img, with: { src: '/assets/custom.png' })
 
 
-##  assign value
-Settings.office_active
-    allow(Settings).to receive(:office_active) { nil }
-    assign(:welcome, false)
+
