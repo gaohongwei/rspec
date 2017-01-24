@@ -14,3 +14,5 @@ RSpec.describe Template, type: :model do
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:subject) }
+  it { is_expected.to have_fields(:with_logo).of_type(Mongoid::Boolean).with_default_value_of(false) }
+  it { is_expected.to have_field(:name).of_type(String).with_default_value_of('abc') }
