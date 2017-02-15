@@ -4,3 +4,14 @@
         with_tag 'input', with: { type: 'radio', name: 'search[days]', id: '30', value: '30' }
         with_tag 'input', with: { type: 'radio', name: 'search[days]', id: '365', value: '365' }
       end
+
+    expect(rendered).to have_tag('tr') do
+      with_tag 'th', text: 'NAME'
+      with_tag 'th', text: 'IP ADDRESS'
+      with_tag 'th', text: 'FACILITY'
+      with_tag 'th', text: 'FORMAT'
+    end
+    expect(rendered).to have_tag('tr') do
+      with_tag 'th', text: 'CLIENT'
+      with_tag 'th', text: 'CLIENT'
+    end
