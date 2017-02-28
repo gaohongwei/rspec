@@ -15,3 +15,16 @@
       with_tag 'th', text: 'CLIENT'
       with_tag 'th', text: 'CLIENT'
     end
+### Complaicted case
+  it 'has the layout, syslog app section and syslog receiver section' do
+    render
+    expect(rendered).to have_tag('div', with: {class: 'row'}) do
+      with_tag 'div', with: {class: 'col-md-3'} do
+        with_tag('div', with: {class: 'panel panel-default license page-header', id: 'table_syslog_app'})
+      end
+      with_tag 'div', with: {class: 'row'}
+      with_tag 'div', with: {class: 'col-md-9'} do
+        with_tag('div', with: {class: 'panel panel-default license page-header', id: 'table_syslog_receiver'})
+      end
+    end
+  end
