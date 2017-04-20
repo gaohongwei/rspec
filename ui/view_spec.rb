@@ -11,6 +11,16 @@ allow(Event).to receive(:default_per_page) { 100 }
   
 # view
   render
+  it "renders the index template" do
+    get :index
+    expect(response).to render_template("index")
+  end
+
+  expect(response).to render_template(:new)
+  expect(response).to redirect_to(location)  
+  expect(response).to have_http_status(:created)
+  expect(assigns(:widget)).to be_a_new(Widget)
+
   expect(rendered).to match(/New Message/)
   expect(rendered).not_to have_tag('h2', text: 'Attached Risks')
   expect(rendered).to have_tag(
