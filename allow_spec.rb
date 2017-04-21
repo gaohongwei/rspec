@@ -7,3 +7,5 @@ allow(Settings).to receive(:exchange)and_return({ enable: true })
 allow(controller).to receive(:action_name) { 'show' }
 allow(controller).to receive(:controller_name) { 'global_settings' }
 allow(user).to receive(:full_name).with('xxx').and_return(true)
+
+controller.stub_chain(:remediation_service, :remove_direct_links).and_return(OpenStruct.new(status: 200))
